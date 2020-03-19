@@ -40,10 +40,7 @@ body{
     .profile-image{
         width: 3rem;
         height: auto;
-        margin-left: 1rem;
-        margin-right: 0.5rem;
-        margin-top: 0.3rem;
-        margin-bottom: auto;
+        margin: 0.3rem 0.5rem auto 1rem;
     }
 }
 
