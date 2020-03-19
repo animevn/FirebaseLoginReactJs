@@ -15,7 +15,7 @@ const Profile = ()=>{
         {currentUser.uid}
       </h5>
       <div className="row">
-        <div className="btn-group group-button mx-auto col-xl-6 col-lg-7 col-md-9 col-sm-11 col-11">
+        <div className="btn-group group-button mx-auto col-xl-5 col-lg-6 col-md-8 col-sm-10 col-10">
           <button className="btn login-button btn-outline-success btn-lg"
                   onClick={()=>firebase.auth().signOut()}>
             Logout

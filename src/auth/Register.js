@@ -10,11 +10,9 @@ const Register = ()=>{
   const handleRegister = (event)=>{
     event.preventDefault();
     const {email, password} = event.target.elements;
-    try{
-      firebase.auth().createUserWithEmailAndPassword(email.value, password.value);
-    }catch (e) {
-      alert(e);
-    }
+    firebase.auth().createUserWithEmailAndPassword(email.value, password.value).catch(err=>{
+      alert(err);
+    });
   };
 
   return (
