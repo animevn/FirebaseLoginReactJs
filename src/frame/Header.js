@@ -22,7 +22,9 @@ function Header() {
            display="flex" flexDirection="row" justifyContent="space-between" alignItems="center">
         <Button onClick={onTitleClick}>
           <Typography component="div" variant="h3">
-            <Box fontWeight={500}>Note Keeper</Box>
+            <Box fontWeight={500} color="secondary.main">
+              Note Keeper
+            </Box>
           </Typography>
         </Button>
         <UserIcon/>

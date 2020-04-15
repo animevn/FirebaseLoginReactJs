@@ -42,7 +42,7 @@ const Login = ()=>{
 
         <Box mt={5} >
           <Typography component="div" variant="h3">
-            <Box color="green" fontWeight="fontWeightBold">
+            <Box color="secondary.main" fontWeight="fontWeightBold">
               Enter Secret
             </Box>
           </Typography>
