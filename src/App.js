@@ -6,10 +6,10 @@ import {AuthProvider} from "./firebase/Auth";
 import PrivateRoute from "./route/PrivateRoute";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
-import Home from "./auth/Home";
-import SignIn from "./auth/SignIn";
+import Login from "./auth/Login";
 import Register from "./auth/Register";
-import Login from "./auth/SignIn";
+import SignIn from "./auth/SignIn";
+import Profile from "./auth/Profile";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
         <AuthProvider>
           <BrowserRouter>
             <Header/>
-            <PrivateRoute exact path="/" component={Home} />
+            <PrivateRoute exact path="/" component={Profile} />
             <Route exact path="/login" component={Login}/>
             <Route exact path="/signin" component={SignIn}/>
             <Route exact path="/register" component={Register}/>

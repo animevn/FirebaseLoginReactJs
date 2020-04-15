@@ -2,31 +2,57 @@ import React, {useContext} from "react";
 import {AuthContext} from "../firebase/Auth";
 import {Redirect} from "react-router-dom";
 import firebase from "../firebase/Firebase";
+import Box from "@material-ui/core/Box";
+import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+const width = {xs:"90%", sm:"550px", md:"550px", lg:"550px", xl:"550px"};
+const boxWidth = {xs:"90%", sm:"50%", md:"50%", lg:"50%", xl:"50%"};
 
 const Profile = ()=>{
   const {currentUser} = useContext(AuthContext);
   if (!currentUser){
-    return <Redirect to="/"/>;
+    return <Redirect to="/login"/>;
   }
   return (
-    <div className="container">
-      <h1 className="text-center mt-5 mb-5 text-success">My Profile</h1>
-      <h5 className="text-center mt-5 mb-5 text-success">
-        {currentUser.uid}
-      </h5>
-      <div className="row">
-        <div className="btn-group group-button mx-auto col-xl-5 col-lg-6 col-md-8 col-sm-10 col-10">
-          <button className="btn login-button btn-outline-success btn-lg"
-                  onClick={()=>firebase.auth().signOut()}>
-            Logout
-          </button>
-          <button className="btn login-button btn-outline-success btn-lg"
-                  onClick={()=>firebase.auth().currentUser.delete()}>
-            Delete
-          </button>
-        </div>
-      </div>
-    </div>
+    <Grid container direction="row" justify="center">
+      <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center"
+           width={width}>
+
+        <Typography componet="div" variant="h4">
+          <Box fontWeight="fontWeightBold" mt={5} color="secondary.main">
+            My Profile
+          </Box>
+        </Typography>
+
+        <Typography componet="div" variant="h6">
+          <Box fontWeight="fontWeightBold" mt={5} color="secondary.main">
+            {currentUser.uid}
+          </Box>
+        </Typography>
+
+        <Box display="flex" flexDirection="row" justifyContent="space-between"
+             mt={5} width={boxWidth} border={1} borderColor="secondary.main" borderRadius={3}>
+
+          <Box width={0.5} >
+            <Button fullWidth variant="text" color="secondary" size="large"
+                    onClick={()=>firebase.auth().signOut()}>
+              Logout
+            </Button>
+          </Box>
+
+          <Box width={0.5} borderLeft={1} borderColor="secondary.main">
+            <Button fullWidth variant="text" color="secondary" size="large"
+                    onClick={()=>firebase.auth().currentUser.delete()}>
+              Delete
+            </Button>
+          </Box>
+
+        </Box>
+
+      </Box>
+    </Grid>
+
   );
 };
 
